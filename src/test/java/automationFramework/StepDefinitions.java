@@ -12,27 +12,31 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import automationFramework.pages.GoogleSearchPage;
 import static org.junit.Assert.*;
 
-public class StepDefinitions {
-    private FrameworkBase base = null;
-    private WebDriver driver = null;
-    private GoogleSearchPage page;
+public class StepDefinitions extends FrameworkBase {
+  
 
+	public StepDefinitions() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+    private GoogleSearchPage page;
+    
+ 
     @Before
     public void setUp()  {
-        System.out.println("Starting test on chrome");
-        final String dir = System.getProperty("user.dir");
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-         driver = new ChromeDriver();
-        page = new GoogleSearchPage(driver);
+  
+        page = new GoogleSearchPage();
+    	getDriver();
     }
 
     @After
     public void teardown(){
-        System.out.println("Closing chrome Session");
+      /*  System.out.println("Closing chrome Session");
         if(driver!=null){
             driver.quit();
             System.out.println(" Chrome session closed.");
-        }
+        }*/
     }
     @Given("I reach google home page")
     public void i_reach_the_home_page() {

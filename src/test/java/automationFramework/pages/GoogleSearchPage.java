@@ -7,16 +7,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 
-public class GoogleSearchPage extends FrameworkBase {
+public class GoogleSearchPage extends FrameworkBase{
 
     final private By googleSearchBar =By.cssSelector("[name=q]");
     final private By resultCountLocator = By.id("result-stats");
-    private WebDriver _driver;
-   public GoogleSearchPage(WebDriver driver){
+    private WebDriver driver;
+   /*public GoogleSearchPage(WebDriver _driver){
 
-            super(driver);
-         _driver = driver;
-    }
+         driver = _driver;
+    }*/
 
     /**
      * Accepts google terms of use

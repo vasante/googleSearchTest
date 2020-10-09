@@ -20,17 +20,18 @@ public class FrameworkBase {
     protected static WebDriver driver = null;
     protected JavascriptExecutor js;
     protected WebDriverWait waiter;
-    public FrameworkBase(WebDriver _driver){
-        driver = _driver;
+    public FrameworkBase(){
         if(driver!=null){
             waiter = (WebDriverWait) new WebDriverWait(driver, timeouts)
                     .pollingEvery(Duration.ofMillis(50))
                     .ignoring(StaleElementReferenceException.class);
             js = (JavascriptExecutor)driver;
+           
         }
-
+        getDriver();
     }
-    //default timeout
+
+	//default timeout
     protected int timeouts = 5;
 
     /**
@@ -40,7 +41,9 @@ public class FrameworkBase {
         if(driver != null){
             return  driver;
         }
-    
+        System.out.println("Starting test on chrome");
+        final String dir = System.getProperty("user.dir");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
 
         return driver;
