@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    }
+    stages {
+
+        stage('Git Checkout') {
+                    steps {
+                       git credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/vasante/googleSearch.git'
+                    }
+                }
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Unit Test') {
+            steps {
+                sh 'mvn test -Dcucumber.filter.tags="@unit '
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Integration Test') {
+                    steps {
+                        sh 'mvn test -Dcucumber.filter.tags="@int '
+                    }
+                    post {
+                        always {
+                            junit 'target/surefire-reports/*.xml'
+                        }
+                    }
+                }
+        stage('Acceptance Test') {
+                            steps {
+                                sh 'mvn test -Dcucumber.filter.tags="@ui '
+                            }
+                            post {
+                                always {
+                                    junit 'target/surefire-reports/*.xml'
+                                }
+                            }
+                        }
+
+    }
+}
