@@ -5,7 +5,7 @@ pipeline {
 
         stage('Git Checkout') {
                     steps {
-                       git credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/vasante/googleSearch.git'
+                       git credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/vasante/googleSearchTest.git'
                     }
                 }
         stage('Build') {
