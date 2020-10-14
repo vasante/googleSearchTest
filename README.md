@@ -2,7 +2,7 @@
 > Simple test automation solution based on Java cucumber, Selenium web driver and Maven
 
 ## 1 - Run locally
-* Clone the solution using git [google example repos](https://github.com/vasante/googleSearch.git)
+* Clone the solution using git [google example repos](https://github.com/vasante/googleSearchTest.git)
 * Build the solution using Maven ``mvn -B -DskipTests clean package``
 * Run the test using Maven ```mvn test```
 * Optionally you can use ```-Dcucumber.filter.tags``` parameter to indicate with scenarios you wish to run example:`` mvn clean test -Dcucumber.filter.tags="@smoke``
