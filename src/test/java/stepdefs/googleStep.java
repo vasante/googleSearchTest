@@ -12,10 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import automationFramework.pages.GoogleSearchPage;
 import static org.junit.Assert.*;
 
-public class StepDefinitions extends FrameworkBase {
+public class googleStep extends FrameworkBase {
   
 
-	public StepDefinitions() {
+	public googleStep() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
